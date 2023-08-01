@@ -19,13 +19,12 @@ void lineDDA()
 
     steps = (abs(dx) > abs(dy)) ? abs(dx) : abs(dy);
     xInc = dx / (float)steps;
-    yInc = dy / float(steps);
+    yInc = dy / (float)steps;
 
     // Drawing the line on the board
     glClear(GL_COLOR_BUFFER_BIT);
 
     glBegin(GL_POINTS);
-
     glVertex2d(x, y);
     for (int k = 0; k < steps; k++)
     {
@@ -34,6 +33,7 @@ void lineDDA()
         glVertex2d(roundValue(x), roundValue(y));
     }
     glEnd();
+
     glFlush();
 }
 
