@@ -19,3 +19,12 @@ This will create a file called `FileName` in the `binaries` directory. You can e
 ```
 
 For the purposes of this repository, I would not be commiting the `binaries` folder. However, you can compile the binaries you like by using the above methodology.
+
+### Programs
+
+| S.No. | Name                   | Description                                        |
+| ----- | ---------------------- | -------------------------------------------------- |
+| 1     | Introduction           | Generates a simple triangle                        |
+| 2     | DDA                    | Line generation usind DDA                          |
+| 3     | Bresenham's Algorithm  | Line generation using Bresenham's Algorithm        |
+| 4     | Dotted Line Generation | Dotted line generation using Bresenham's Algorithm |
