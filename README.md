@@ -22,9 +22,9 @@ For the purposes of this repository, I would not be commiting the `binaries` fol
 
 ### Programs
 
-| S.No. | Name                   | Description                                        |
-| ----- | ---------------------- | -------------------------------------------------- |
-| 1     | Introduction           | Generates a simple triangle                        |
-| 2     | DDA                    | Line generation usind DDA                          |
-| 3     | Bresenham's Algorithm  | Line generation using Bresenham's Algorithm        |
-| 4     | Dotted Line Generation | Dotted line generation using Bresenham's Algorithm |
+| S.No. | Name                                                   | Description                                        |
+| ----- | ------------------------------------------------------ | -------------------------------------------------- |
+| 1     | [Introduction](./programs/01-Intro.cpp)                | Generates a simple triangle                        |
+| 2     | [DDA](./programs/02-LineUsingDDA.cpp)                  | Line generation usind DDA                          |
+| 3     | [Bresenham's Algorithm](./programs/03-Bresenham.cpp)   | Line generation using Bresenham's Algorithm        |
+| 4     | [Dotted Line Generation](./programs/04-DashedLine.cpp) | Dotted line generation using Bresenham's Algorithm |
