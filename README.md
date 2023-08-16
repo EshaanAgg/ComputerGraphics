@@ -31,10 +31,13 @@ chmod +x compile.sh
 
 ### Programs
 
-| S.No. | Name                                                                | Description                                                         |
-| ----- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| 1     | [Introduction](./programs/01-Intro.cpp)                             | Generates a simple triangle                                         |
-| 2     | [DDA](./programs/02-LineUsingDDA.cpp)                               | Line generation usind DDA                                           |
-| 3     | [Bresenham's Algorithm](./programs/03-Bresenham.cpp)                | Line generation using Bresenham's Algorithm                         |
-| 4     | [Dotted Line Generation](./programs/04-DashedLine.cpp)              | Dotted line generation using Bresenham's Algorithm                  |
-| 5     | [Circle Generation: Parametric](./programs/05-CircleParametric.cpp) | Circle generation using the paramteric representation of the circle |
+| S.No. | Name                                                                | Description                                                       |
+| ----- | ------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| 1     | [Introduction](./programs/01-Intro.cpp)                             | Generates a simple triangle                                       |
+| 2     | [DDA](./programs/02-LineUsingDDA.cpp)                               | Line generation usind DDA                                         |
+| 3     | [Bresenham's Algorithm](./programs/03-Bresenham.cpp)                | Line generation using Bresenham's Algorithm                       |
+| 4     | [Dotted Line Generation](./programs/04-DashedLine.cpp)              | Dotted line generation using Bresenham's Algorithm                |
+| 5     | [Circle Generation: Parametric](./programs/05-CircleParametric.cpp) | Circle generation using the paramteric representation of a circle |
+| 6     | [Circle Generation: Polynomial](./programs/06-CirclePolynomial.cpp) | Circle generation using the polunomial representation of a circle |
+| 7     | [Circle Generation: Breshenham](./programs/07-CircleBreshenham.cpp) | Circle generation using Breshenham's algorithm                    |
+| 8     | [Circle Generation: Midpoint](./programs/08-CircleMidpoint.cpp)     | Circle generation using the midpoint analysis technique           |

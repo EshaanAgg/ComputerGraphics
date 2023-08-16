@@ -7,8 +7,8 @@ int X, Y, r;
 
 /*
  * Disadvantages:
- * For large R, pixelation occurs due to large increase in arc length
- * Rounding off of the coordinates is done to fit the pixel grid
+ * Uneven distirbution of the points leads to different brightness levels
+ * The upper and lower arcs have higher brightness, while the side arcs are fainter
  */
 
 void draw(int xi, int yi)
@@ -26,11 +26,10 @@ void draw(int xi, int yi)
 void circle()
 {
     glBegin(GL_POINTS);
-    for (int i = 0; i <= 45; i++)
+    for (int x = 0; x < (int)((float)r / sqrt(2)); x++)
     {
-        float theta = (i / 180.0) * acos(-1);
-        int xi = r * cos(theta), yi = r * sin(theta);
-        draw(xi, yi);
+        int y = sqrt(r * r - x * x);
+        draw(x, y);
     }
     glEnd();
 }
@@ -47,7 +46,7 @@ void init()
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
     glutInitWindowPosition(0, 0);
     glutInitWindowSize(500, 500);
-    glutCreateWindow("Parametric Circle");
+    glutCreateWindow("Polynomial Circle");
     glClearColor(1.0, 1.0, 1.0, 0);
     glColor3f(0, 0, 0);
     gluOrtho2D(0, 500, 0, 500);
