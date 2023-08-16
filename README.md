@@ -18,13 +18,23 @@ This will create a file called `FileName` in the `binaries` directory. You can e
 ./binaries/FileName
 ```
 
-For the purposes of this repository, I would not be commiting the `binaries` folder. However, you can compile the binaries you like by using the above methodology.
+For the purposes of this repository, I would not be commiting the `binaries` folder.
+
+### Compiling all the binaries
+
+You can compile all the binaries in one go by using the shell script.
+
+```bash
+chmod +x compile.sh
+./compile.sh
+```
 
 ### Programs
 
-| S.No. | Name                                                   | Description                                        |
-| ----- | ------------------------------------------------------ | -------------------------------------------------- |
-| 1     | [Introduction](./programs/01-Intro.cpp)                | Generates a simple triangle                        |
-| 2     | [DDA](./programs/02-LineUsingDDA.cpp)                  | Line generation usind DDA                          |
-| 3     | [Bresenham's Algorithm](./programs/03-Bresenham.cpp)   | Line generation using Bresenham's Algorithm        |
-| 4     | [Dotted Line Generation](./programs/04-DashedLine.cpp) | Dotted line generation using Bresenham's Algorithm |
+| S.No. | Name                                                                | Description                                                         |
+| ----- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| 1     | [Introduction](./programs/01-Intro.cpp)                             | Generates a simple triangle                                         |
+| 2     | [DDA](./programs/02-LineUsingDDA.cpp)                               | Line generation usind DDA                                           |
+| 3     | [Bresenham's Algorithm](./programs/03-Bresenham.cpp)                | Line generation using Bresenham's Algorithm                         |
+| 4     | [Dotted Line Generation](./programs/04-DashedLine.cpp)              | Dotted line generation using Bresenham's Algorithm                  |
+| 5     | [Circle Generation: Parametric](./programs/05-CircleParametric.cpp) | Circle generation using the paramteric representation of the circle |
