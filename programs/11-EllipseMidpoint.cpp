@@ -5,12 +5,6 @@
 
 int X, Y, a, b;
 
-/*
- * Disadvantages:
- * Uneven distirbution of the points leads to different brightness levels
- * The upper and lower arcs have higher brightness, while the side arcs are fainter
- */
-
 void draw(int xi, int yi)
 {
     glVertex2i(X + xi, Y + yi);
@@ -78,7 +72,7 @@ void init()
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
     glutInitWindowPosition(0, 0);
     glutInitWindowSize(500, 500);
-    glutCreateWindow("Polynomial Ellipse");
+    glutCreateWindow("Midpoint Ellipse");
     glClearColor(1.0, 1.0, 1.0, 0);
     glColor3f(0, 0, 0);
     gluOrtho2D(0, 500, 0, 500);
