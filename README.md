@@ -31,16 +31,20 @@ chmod +x compile.sh
 
 ### Programs
 
-| S.No. | Name                                                                  | Description                                                        |
-| ----- | --------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| 1     | [Introduction](./programs/01-Intro.cpp)                               | Generates a simple triangle                                        |
-| 2     | [DDA](./programs/02-LineUsingDDA.cpp)                                 | Line generation usind DDA                                          |
-| 3     | [Bresenham's Algorithm](./programs/03-Bresenham.cpp)                  | Line generation using Bresenham's Algorithm                        |
-| 4     | [Dotted Line Generation](./programs/04-DashedLine.cpp)                | Dotted line generation using Bresenham's Algorithm                 |
-| 5     | [Circle Generation: Parametric](./programs/05-CircleParametric.cpp)   | Circle generation using the paramteric representation of a circle  |
-| 6     | [Circle Generation: Polynomial](./programs/06-CirclePolynomial.cpp)   | Circle generation using the polynomial representation of a circle  |
-| 7     | [Circle Generation: Breshenham](./programs/07-CircleBreshenham.cpp)   | Circle generation using Breshenham's algorithm                     |
-| 8     | [Circle Generation: Midpoint](./programs/08-CircleMidpoint.cpp)       | Circle generation using the midpoint analysis technique            |
-| 9     | [Ellipse Generation: Parametric](./programs/09-EllipseParametric.cpp) | Ellopse generation using the paramteric representation of a circle |
-| 10    | [Ellipse Generation: Polynomial](./programs/10-EllipsePolynomial.cpp) | Ellipse generation using the polynomial representation of a circle |
-| 11    | [Ellipse Generation: Midpoint](./programs/11-EllipseMidpoint.cpp)     | Ellipse generation using the midpoint analysis technique           |
+| S.No. | Name                                                                        | Description                                                                                  |
+| ----- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| 1     | [Introduction](./programs/01-Intro.cpp)                                     | Generates a simple triangle                                                                  |
+| 2     | [DDA](./programs/02-LineUsingDDA.cpp)                                       | Line generation usind DDA                                                                    |
+| 3     | [Bresenham's Algorithm](./programs/03-Bresenham.cpp)                        | Line generation using Bresenham's Algorithm                                                  |
+| 4     | [Dotted Line Generation](./programs/04-DashedLine.cpp)                      | Dotted line generation using Bresenham's Algorithm                                           |
+| 5     | [Circle Generation: Parametric](./programs/05-CircleParametric.cpp)         | Circle generation using the paramteric representation of a circle                            |
+| 6     | [Circle Generation: Polynomial](./programs/06-CirclePolynomial.cpp)         | Circle generation using the polynomial representation of a circle                            |
+| 7     | [Circle Generation: Breshenham](./programs/07-CircleBreshenham.cpp)         | Circle generation using Breshenham's algorithm                                               |
+| 8     | [Circle Generation: Midpoint](./programs/08-CircleMidpoint.cpp)             | Circle generation using the midpoint analysis technique                                      |
+| 9     | [Ellipse Generation: Parametric](./programs/09-EllipseParametric.cpp)       | Ellopse generation using the paramteric representation of a circle                           |
+| 10    | [Ellipse Generation: Polynomial](./programs/10-EllipsePolynomial.cpp)       | Ellipse generation using the polynomial representation of a circle                           |
+| 11    | [Ellipse Generation: Midpoint](./programs/11-EllipseMidpoint.cpp)           | Ellipse generation using the midpoint analysis technique                                     |
+| 12    | [Scanline Polygon Filling](./programs/12-ScanlinePolygon.cpp)               | Filling colour in a polygon based on the scanline algorithm                                  |
+| 13    | [Floodfill Algorithm](./programs/13-Floodfill.cpp)                          | Implement the floodfill algorithm                                                            |
+| 14    | [Boundary Fill Algorithm](./programs/14-BoundaryFill.cpp)                   | Implement the boundary fill algorithm                                                        |
+| 15    | [Simple Geometric Transformations](./programs/15-SimpleTransformations.cpp) | Implement transalation, scaling, rotation, reflection and shearing algorithms for a triangle |
