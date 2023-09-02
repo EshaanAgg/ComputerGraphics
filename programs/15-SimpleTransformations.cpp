@@ -215,7 +215,7 @@ int main(int argc, char **argv)
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
 
-    glutCreateWindow("Original Triangle:");
+    glutCreateWindow("Original Triangle");
     gluOrtho2D(-300, 300, -300, 300);
     glutDisplayFunc(drawOrginial);
 
