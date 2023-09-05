@@ -243,7 +243,6 @@ void scanlineFill()
 
 void myInit(void)
 {
-
     glClearColor(1.0, 1.0, 1.0, 0.0);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
