@@ -113,7 +113,7 @@ namespace Geometry
         else if (type == 2)
         {
             // Rotation
-            double pi = 2 * acos(-1);
+            double pi = 2 * acos(0);
             cout << "Enter angle theta for rotation (in degrees): ";
             double theta;
             cin >> theta;

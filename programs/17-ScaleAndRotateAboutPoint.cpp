@@ -107,7 +107,7 @@ namespace Geometry
         cout << "Enter the angle of rotation. \n";
         double theta;
         cin >> theta;
-        double pi = 2 * acos(-1);
+        double pi = 2 * acos(0);
         theta *= pi / 180;
 
         translate(-x, -y);
