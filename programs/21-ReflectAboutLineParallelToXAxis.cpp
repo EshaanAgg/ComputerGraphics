@@ -1,13 +1,7 @@
 #include <bits/stdc++.h>
 #include <GL/glut.h>
-using namespace std;
 
-// This program is for performing a transformation on the triangle
-// 1 -> Translation
-// 2 -> Rotation (About Z axis)
-// 3 -> Scaling
-// 4 -> Shearing (About X axis)
-// 5 -> Reflection
+using namespace std;
 
 template <typename T>
 class Matrix
@@ -41,16 +35,6 @@ public:
         return row;
     }
 
-    void print()
-    {
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < n; j++)
-                cout << val[i][j] << " ";
-            cout << "\n";
-        }
-    }
-
     Matrix<T> operator*(const Matrix<T> &b) const
     {
         Matrix<T> ans(b.n);
@@ -60,14 +44,6 @@ public:
                     ans.val[i][j] += this->val[i][k] * b.val[k][j];
         return ans;
     }
-
-    Matrix<T> identity(int N)
-    {
-        Matrix<T> ans(N);
-        for (int i = 0; i < N; i++)
-            ans.val[i][i] = 1;
-        return ans;
-    }
 };
 
 namespace Geometry
@@ -75,6 +51,69 @@ namespace Geometry
     vector<vector<double>> points = {{40, 40, -50}, {90, 40, -50}, {90, 90, -50}, {40, 90, -50}, {30, 30, 0}, {80, 30, 0}, {80, 80, 0}, {30, 80, 0}};
     vector<vector<double>> colors = {{0.7, 0.4, 0.7}, {0.2, 0.5, 0.3}, {0.2, 0.4, 0.7}, {0.5, 0.4, 0.3}, {0.5, 0.7, 0.2}, {0.2, 0.3, 0.4}};
     vector<vector<double>> pointsTransformed(points.size(), vector<double>(3));
+
+    void apply(Matrix<double> mat)
+    {
+        for (int i = 0; i < points.size(); i++)
+        {
+            vector<double> col = {pointsTransformed[i][0], pointsTransformed[i][1], pointsTransformed[i][2], 1};
+            auto row = mat.multiplyColumn(col);
+            pointsTransformed[i][0] = row[0];
+            pointsTransformed[i][1] = row[1];
+            pointsTransformed[i][2] = row[2];
+        }
+    }
+
+    void translate(double tx, double ty, double tz)
+    {
+        Matrix<double> mat(4);
+        mat.val = {
+            {1, 0, 0, tx},
+            {0, 1, 0, ty},
+            {0, 0, 1, tz},
+            {0, 0, 0, 1}};
+        apply(mat);
+    }
+
+    void rotateX(double cos, double sin)
+    {
+        Matrix<double> mat(4);
+        mat.val = {
+            {1, 0, 0, 0},
+            {0, cos, -sin, 0},
+            {0, sin, cos, 0},
+            {0, 0, 0, 1}};
+        apply(mat);
+    }
+
+    void transform()
+    {
+        pointsTransformed = points;
+
+        // Input the points
+        cout << "Enter the coordinates of A (0, b, c) through which the line passes. \n";
+        double b, c;
+        cin >> b >> c;
+
+        // Draw the line
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_LINES);
+        glVertex3f(-1000, b, c);
+        glVertex3f(1000, b, c);
+        glEnd();
+
+        // Input the angle of rotation
+        cout << "Enter the angle of rotation theta (in degrees): ";
+        double theta;
+        cin >> theta;
+        double pi = 2 * acos(0);
+        theta *= pi / 180;
+
+        // Apply the transformations
+        translate(0, -b, -c);
+        rotateX(cos(theta), sin(theta));
+        translate(0, b, c);
+    }
 
     void drawAxes()
     {
@@ -94,89 +133,6 @@ namespace Geometry
         glVertex3s(0, 0, -1000);
         glVertex3s(0, 0, 1000);
         glEnd();
-    }
-
-    void transform()
-    {
-        Matrix<double> mat(4);
-
-        cout << "Enter the operator you want to perform:\n";
-        cout << "1: Translation, 2: Rotation, 3: Scaling, 4: Shearing, 5: Reflection\n";
-        int type;
-        cin >> type;
-
-        if (type == 1)
-        {
-            // Translation
-            cout << "Enter Translation factors in X, Y and Z (tx,ty, tz): ";
-            double tx, ty, tz;
-            cin >> tx >> ty >> tz;
-            mat.val = {
-                {1, 0, 0, tx},
-                {0, 1, 0, ty},
-                {0, 0, 1, tz},
-                {0, 0, 0, 1}};
-        }
-        else if (type == 2)
-        {
-            // Rotation
-            double pi = 2 * acos(0);
-            cout << "Enter angle theta for rotation (in degrees): ";
-            double theta;
-            cin >> theta;
-            theta *= pi / 180;
-            mat.val = {
-                {cos(theta), -sin(theta), 0, 0},
-                {sin(theta), cos(theta), 0, 0},
-                {0, 0, 1, 0},
-                {0, 0, 0, 1}};
-        }
-        else if (type == 3)
-        {
-            // Scaling
-            cout << "Enter the scale factors (sx, sy, sz): ";
-            double sx, sy, sz;
-            cin >> sx >> sy >> sz;
-            mat.val = {
-                {sx, 0, 0, 0},
-                {0, sy, 0, 0},
-                {0, 0, sz, 0},
-                {0, 0, 0, 1}};
-        }
-        else if (type == 4)
-        {
-            // Shearing
-            cout << "Enter shearing factors about X axis (sxy,sxz): ";
-            double sxy, sxz;
-            cin >> sxy >> sxz;
-            mat.val = {
-                {1, 0, 0, 0},
-                {sxy, 1, 0, 0},
-                {sxz, 0, 1, 0},
-                {0, 0, 0, 1}};
-        }
-        else
-        {
-            // Reflection about planes
-            cout << "Enter 1 for reflection about XY plane, 2 for reflection about YZ plane and 3 for reflection about XZ plane.";
-            int t;
-            cin >> t;
-            if (t == 1)
-                mat.val = {{1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, -1, 0}, {0, 0, 0, 1}};
-            else if (t == 2)
-                mat.val = {{-1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}};
-            else
-                mat.val = {{1, 0, 0, 0}, {0, -1, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}};
-        }
-
-        for (int i = 0; i < points.size(); i++)
-        {
-            vector<double> col = {points[i][0], points[i][1], points[i][2], 1};
-            auto row = mat.multiplyColumn(col);
-            pointsTransformed[i][0] = row[0];
-            pointsTransformed[i][1] = row[1];
-            pointsTransformed[i][2] = row[2];
-        }
     }
 
     void display(vector<vector<double>> a)
@@ -259,18 +215,18 @@ int main(int argc, char **argv)
 
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-    glutInitWindowSize(500, 500);
+    glutInitWindowSize(700, 700);
     glutInitWindowPosition(0, 0);
     glClearColor(1.0, 1.0, 1.0, 1.0);
     glEnable(GL_DEPTH_TEST);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     glutCreateWindow("Original");
-    glOrtho(-50, 400.0, -50.0, 400.0, -50.0, 400.0);
+    glOrtho(-200, 400.0, -200.0, 400.0, -200.0, 400.0);
     glutDisplayFunc(displayOriginal);
 
     glutCreateWindow("Transformed");
-    glOrtho(-50, 400.0, -50.0, 400.0, -50.0, 400.0);
+    glOrtho(-200, 400.0, -200.0, 400.0, -200.0, 400.0);
     glutDisplayFunc(displayTransformed);
 
     glutMainLoop();
