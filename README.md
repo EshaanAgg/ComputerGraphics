@@ -54,3 +54,5 @@ chmod +x compile.sh
 | 19    | [3D Simple Transformations](./programs/19-3DTransformations.cpp)                        | Implement translation, scaling, rotation, reflection and shearing algorithms in 3D coordinates                                   |
 | 20    | [3D Composite Transformations](./programs/20-3DReflectAboutLine.cpp)                    | Rotate a cube about an arbitary line in the 3D coordinate system                                                                 |
 | 21    | [3D Composite Transformations 2](./programs/21-ReflectAboutLineParallelToXAxis.cpp)     | Rotate a cube about a line parallel to the X axis in the 3D coordinate system                                                    |
+| 22    | [Perspective Projection](./programs/22-PerspectiveProjection.cpp)                       | Project a cube onto a 2D plane using perspective projection                                                                      |
+| 23    | [Parallel Projection](./programs/22-PerspectiveProjection.cpp)                          | Project a cube onto a 2D plane using parallel projection                                                                         |
