@@ -107,6 +107,7 @@ void display3D()
     glFlush();
 }
 
+// Need to perform calculations here as well perspective transformation is a non linear transformation
 void displayViewPlane()
 {
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -117,9 +118,11 @@ void displayViewPlane()
     matrixMult(T, origin, originTransformed);
     normalize(originTransformed);
 
+    // Scaling factor for display
     float scale = 1;
     float t1[3], t2[3];
 
+    // Orthographic projection matrix to map the coordinates to the plane
     t1[0] = n3;
     t1[1] = 0;
     t1[2] = -n1;
@@ -130,7 +133,6 @@ void displayViewPlane()
     for (int i = 0; i < planeView.size(); i++)
     {
         float temp1 = 0, temp2 = 0;
-
         for (int j = 0; j < 3; j++)
         {
             temp1 += scale * t1[j] * (cubeTransformed[i][j] - originTransformed[0][j]);
@@ -141,6 +143,7 @@ void displayViewPlane()
         planeView[i][1] = temp2;
     }
 
+    // Plot all the 6 faces as line loops
     for (int i = 0; i < 24; i += 4)
     {
         glBegin(GL_LINE_LOOP);
