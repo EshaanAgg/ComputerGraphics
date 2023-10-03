@@ -58,6 +58,7 @@ void clippedLine(double u1, double u2)
     glEnd();
 }
 
+// Use Liang Barsky to perform the line clipping in polygon clipping
 void polygonClipping()
 {
     double deltaX = X2 - X1;
