@@ -136,7 +136,7 @@ int main(int argc, char **argv)
     cin >> xd1 >> yd1;
     cout << "Enter the coordinates of the second point of a line (x1,y1): \n";
     cin >> xd2 >> yd2;
-    cout << "Enter the XMIN and XMAX of clipping window:\n";
+    cout << "Enter the XMin and XMax of clipping window:\n";
     cin >> XMin >> XMax;
     cout << "Enter the YMin and YMax of clipping window:\n";
     cin >> YMin >> YMax;

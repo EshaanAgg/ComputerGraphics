@@ -71,7 +71,7 @@ void CyrusBeck()
     auto p2 = make_pair(X2, Y2);
 
     // We manually define the normal vectors corresponding to the four sides of the clipping rectange in our case
-    // Also choose a point on each of them
+    // We also choose a point on each of them
     vector<pair<double, double>> n;
     vector<pair<double, double>> f;
     n.push_back({1, 0});
@@ -85,10 +85,11 @@ void CyrusBeck()
 
     // tl and tu are the parameters corresponding to the clipping points for A1 and A2 (minimum and maximum)
     double tl = 0, tu = 1;
-    // Denominator
+    // Corresponds to the P0-P1 vector
     auto D = make_pair(X2 - X1, Y2 - Y1);
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 4; i++)
     {
+        // Corresponds to the P0-P(t) vector
         auto w = make_pair(X1 - f[i].F, Y1 - f[i].S);
         double DdotN = D.F * n[i].F + D.S * n[i].S;
         double WdotN = w.F * n[i].F + w.S * n[i].S;
