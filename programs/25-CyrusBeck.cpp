@@ -27,7 +27,7 @@ void display()
     glVertex2f(X1, Y1);
     glVertex2f(X2, Y2);
 
-    // The bounding boc
+    // The bounding box
     glVertex2f(XMin, YMin);
     glVertex2f(XMin, YMax);
     glVertex2f(XMin, YMax);
